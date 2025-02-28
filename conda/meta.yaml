@@ -1,5 +1,5 @@
-{% set version = "1.0.1"%}
-
+{% set pyproject = load_file_data('pyproject.toml') %}
+{% set version = pyproject.get('project', {}).get('version') %}
 package:
   name: agroservices
   version: {{ version }}
