@@ -1,5 +1,5 @@
 API References
-==============
+##############
 
 :Release: |release|
 :Date: |today|

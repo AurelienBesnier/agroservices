@@ -43,6 +43,13 @@ version="1.0.1"
 
 [project.optional-dependencies]
 test = ["pytest"]
+doc = [
+  "pydata-sphinx-theme",
+  "myst-parser",
+  "sphinx-favicon",
+  "nbsphinx",
+  "ipykernel",
+]
 
 [project.urls]
 Homepage = "https://openalea.readthedocs.io/"
