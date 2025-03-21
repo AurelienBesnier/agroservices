@@ -31,6 +31,9 @@ Agroservices User Guide
 .. toctree::
    ./user/index.rst
 
+.. toctree::
+   ./user/notebooks.rst
+
 
 API References
 --------------
