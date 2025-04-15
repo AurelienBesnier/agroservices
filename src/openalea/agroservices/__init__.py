@@ -1,3 +1,7 @@
-from .version import version
+from importlib.metadata import version, PackageNotFoundError
 
-__version__ = version
+try:
+    __version__ = version("openalea.agroservices")
+except PackageNotFoundError:
+    # package is not installed
+    pass

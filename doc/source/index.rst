@@ -5,8 +5,15 @@
 
 Welcome to agroservices' documentation!
 ========================================
+.. sidebar:: Summary
+
+    :Version: |version|
+    :Release: |release|
+    :Date: |today|
 
 .. contents::
+
+
 
 What is agroservices ?
 ----------------------

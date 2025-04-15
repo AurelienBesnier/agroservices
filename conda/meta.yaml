@@ -1,45 +1,43 @@
 {% set pyproject = load_file_data('pyproject.toml') %}
-{% set version = pyproject.get('project', {}).get('version') %}
+{% set name = pyproject['project']['name'] %}
+{% set home = pyproject['project']['urls']['Homepage'] %}
+{% set description = pyproject['project']['description'] %}
+{% set license = pyproject['project']['license'] %}
+
 package:
-  name: agroservices
-  version: {{ version }}
+  name: {{ name }}
+  version: {{ GIT_DESCRIBE_TAG }}
 
 source:
   path: ..
 
 build:
   noarch: python
-  preserve_egg_dir: True
-  number: 0
-  script: python -m pip install .
+  script: {{ PYTHON }} -m pip install .
 
 requirements:
   build:
     - python {{PY_VER}}
     - setuptools
+    - setuptools-scm
   run:
-    - python >=3.6
-    - appdirs 
-    - bs4 
-    - pygments 
-    - colorlog 
-    - requests
-    - pyyaml
-    - requests_cache
-    - jsf
+    - python >=3.8
+    {% for dep in pyproject["project"]["dependencies"] %}
+    - {{ dep.lower() }}
+    {% endfor %}
 
 test:
   requires:
     - pytest
   imports:
-    - agroservices
+    - {{ name }}
   source_files:
     - test/**
   commands:
     - cd test
     - pytest -v --ignore=test_weatherdata.py --ignore=test_dss.py
 about:
-  home: "https://github.com/openalea/agroservices"
-  license: GPL-v3
-  summary: "AgroService is a Python package that provides access to IPM Web Services (at least) and a framework to easily implement Web Services wrappers."
+  home: {{ home }}
+  license: {{ license }}
+  summary: {{ description }}
 

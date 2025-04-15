@@ -2,12 +2,7 @@ channel:
   - conda-forge
 dependencies:
   - python
-  - appdirs
-  - bs4
-  - pygments
-  - colorlog
-  - requests
-  - requests_cache
-  - pytest
-  - jsf
-  - six
+  - pip
+  - pandoc
+  - pip:
+      - -e ..[doc,test,plot]

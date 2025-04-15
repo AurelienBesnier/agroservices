@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools"]
+requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -11,12 +11,13 @@ authors = [
   { name = "Aurelien Besnier"},
 ]
 description = "AgroService is a Python package that provides access to IPM Web Services (at least) and a framework to easily implement Web Services wrappers. This package is intended to be close to the webservice. Therefore the requests will have the same API that each web service."
-license.file = "LICENSE.txt"
+
+license = "GPL-3.0"
+license-files = ["LICEN[CS]E*"]
 requires-python = ">=3.8"
 classifiers = [
   "Intended Audience :: Science/Research",
   "Intended Audience :: Developers",
-  "License :: OSI Approved :: CeCILL-C License",
   "Operating System :: OS Independent",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
@@ -28,7 +29,7 @@ classifiers = [
   "Programming Language :: Python :: 3.12",
   "Topic :: Scientific/Engineering",
 ]
-dynamic = ["readme"]
+dynamic = ["readme", "version"]
 dependencies = [
   "appdirs",
   "bs4",
@@ -37,9 +38,9 @@ dependencies = [
   "requests_cache",
   "pygments",
   "jsf",
-  "pyyaml"
+  "pyyaml",
+  "six"
 ]
-version="1.0.1"
 
 [project.optional-dependencies]
 test = ["pytest"]
@@ -62,5 +63,6 @@ where = ["src"]
 include = ["openalea.*"]
 
 [tool.setuptools.dynamic]
-version = {attr = "openalea.agroservices.__version__"}
 readme = {file = ["README.md"]}
+
+[tool.setuptools_scm]
