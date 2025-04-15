@@ -13,7 +13,7 @@ source:
 
 build:
   noarch: python
-  script: {{ PYTHON }} -m pip install .
+  script: python -m pip install .
 
 requirements:
   build:
